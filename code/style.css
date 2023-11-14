@@ -14,5 +14,25 @@ html {
 .accordion {
   background-color: #2b6a4a;
   border-radius: 20px;
-  padding: 10px;
+  padding: 1rem;
+}
+
+.container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+}
+
+.active > i {
+  transform: rotateX(180deg);
+  transition: 0.5s;
+}
+
+i {
+  margin: 0.5rem;
 }

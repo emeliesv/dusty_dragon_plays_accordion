@@ -1,5 +1,5 @@
 function toggle(e) {
-  const element = e.target;
+  const element = e.currentTarget;
   element.classList.toggle("active");
 }
 
@@ -19,19 +19,29 @@ const getPosts = async () => {
   const data = await response.json();
 
   data.forEach((dataPost) => {
+    const container = document.createElement("div");
+    container.setAttribute("class", "container");
+
     const postTitle = document.createElement("div");
     postTitle.setAttribute("class", "section");
-    postTitle.innerHTML = `<h2>${dataPost.title}</h2>`;
+
+    postTitle.innerHTML = `<i class="fa-solid fa-angle-down"></i><h2>${dataPost.title}</h2>`;
     postTitle.addEventListener("click", toggle);
-    accordionElement.appendChild(postTitle);
+
+    accordionElement.appendChild(container);
+    container.appendChild(postTitle);
 
     const postBody = document.createElement("div");
     postBody.setAttribute("class", "description");
     postBody.innerHTML = `<p>${dataPost.body}</p>`;
 
-    postTitle.appendChild(postBody);
+    container.appendChild(postBody);
+
+    /*const angleArrow = document.createElement("i");
+    angleArrow.setAttribute("class", "fa-solid fa-angle-down");
+    postTitle.appendChild(angleArrow);*/
   });
-  const allElements = document.querySelectorAll(".section");
+  const allElements = document.querySelectorAll(".container");
   addBackgroundColor(allElements);
 };
 
