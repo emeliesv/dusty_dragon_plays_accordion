@@ -9,8 +9,8 @@ const accordionElement = document.querySelector(".accordion");
 const addBackgroundColor = (arr) => {
   arr.forEach((element, index) => {
     if (index % 2 == 0) {
-      element.style.backgroundColor = "lightblue";
-    } else element.style.backgroundColor = "plum";
+      element.style.backgroundColor = "#E18286";
+    } else element.style.backgroundColor = "#FBAAAE";
   });
 };
 
@@ -36,10 +36,6 @@ const getPosts = async () => {
     postBody.innerHTML = `<p>${dataPost.body}</p>`;
 
     container.appendChild(postBody);
-
-    /*const angleArrow = document.createElement("i");
-    angleArrow.setAttribute("class", "fa-solid fa-angle-down");
-    postTitle.appendChild(angleArrow);*/
   });
   const allElements = document.querySelectorAll(".container");
   addBackgroundColor(allElements);
